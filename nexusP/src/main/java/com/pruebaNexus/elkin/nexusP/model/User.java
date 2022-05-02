@@ -12,9 +12,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 
@@ -33,6 +32,7 @@ public class User extends BaseEntity {
     private String name;
 
     @NotNull
+    @Min(1) @Max(999)
     @Column(name ="age", nullable = false)
     private Integer age;
 
@@ -42,6 +42,7 @@ public class User extends BaseEntity {
     private Position position;
 
     @NotNull
+    @PastOrPresent
     @Column(name = "date_admission", nullable = false)
     private LocalDate dateAdmission;
 
