@@ -28,9 +28,9 @@ public class UserServiceImpl implements UserService{
     private final UserMapper mapper;
 
     @Override
-    public void save(UserCreateDTO userDTO) {
-        log.debug("Request to save User : {}", userDTO);
-        userRepository.save(mapper.toEntity(userDTO));
+    public void save(UserCreateDTO UserDTO) {
+        log.debug("Request to save User : {}", UserDTO);
+        userRepository.save(mapper.toEntity(UserDTO));
     }
 
     @Override

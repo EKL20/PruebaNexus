@@ -28,9 +28,9 @@ public class PositionServiceImpl implements PositionService {
 
 
     @Override
-    public void save(PositionCreateDTO positionDTO) {
-        log.debug("Request to save Position : {}", positionDTO);
-        positionRepository.save(mapper.toEntity(positionDTO));
+    public void save(PositionCreateDTO PositionDTO) {
+        log.debug("Request to save Position : {}", PositionDTO);
+        positionRepository.save(mapper.toEntity(PositionDTO));
     }
 
     @Override
