@@ -1,0 +1,48 @@
+package com.pruebaNexus.elkin.nexusP.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+
+import com.pruebaNexus.elkin.nexusP.commons.model.BaseEntity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+
+
+@Entity
+@Data
+@NoArgsConstructor
+@SQLDelete(sql = "UPDATE user SET deleted = true WHERE id = ?")
+@Where(clause = "deleted = false")
+@EqualsAndHashCode(callSuper = true)
+@Table(name = "user")
+public class User extends BaseEntity {
+
+    @NotBlank
+    @Size(min= 2, max = 50)
+    @Column(name= "name", length = 50, nullable = false)
+    private String name;
+
+    @NotNull
+    @Column(name ="age", nullable = false)
+    private Integer age;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "position_id", nullable = false)
+    private Position position;
+
+    @NotNull
+    @Column(name = "date_admission", nullable = false)
+    private LocalDate dateAdmission;
+
+}

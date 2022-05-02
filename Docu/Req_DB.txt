@@ -1,0 +1,46 @@
+			DB
+Tablas 
+-Se usaran nombre en ingles, se usará camelcase en las entidades
+para el nombramiento de las tablas, y en la DB se manejará con _, 
+entre los nombnres compuestos. 
+
+
+the values in [], correspond to the names to use in 
+the entity. 
+
+table 1. 
+Name: user
+	fields:
+-id (auto-int)-PK
+-name (Vachar =50)
+[name]
+-age (small int/byte)
+[age]
+-position (FK) (id_position)
+[position]
+-date_admission (fecha/format "dd/mm/aaaa HH:mm:ss")
+[dateAdmission]
+
+table 2. 
+Name: position
+	fields:
+-id (auto int)-PK
+-name (varchar 20)
+[name]
+
+
+table 3.
+Name: product
+	fields:
+-id(auto-int)-PK
+-name (varchar 30)
+[name]
+-quantity (int 32)
+[quantity]
+-date_admission (fecha/format "dd/mm/aaaa HH:mm:ss")
+[dateAdmission]
+-user (id_user)-FK
+[user]
+
+
+

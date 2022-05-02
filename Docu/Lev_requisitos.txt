@@ -1,0 +1,48 @@
+                            PRUEBA TECNICA
+
+LEVANTAMIENTO DE REQUISITOS
+
+Desarrollar un sistema de inventario, que permita controlar
+el ingreso y salida de mercancia. 
+El sistema debe permitir, crear, editar y eliminar. 
+
+Condiciones: 
+Para el registro se debe tener en cuenta-->
+-Nombre de producto. 
+-Cantidad
+-fecha de ingreso
+-usuario que realiza el ingreso.
+
+-los usuarios que pueden ejecutar acciones, deben estar registrados:
+-Nombre
+-Edad
+-Cargo-->{
+-Asesor de ventas
+-Administrador
+-soporte
+}
+-Fecha de ingreso a la compañía. 
+
+/////////////////////////////////////////////////////
+Restricciones: 
+-No debe existir mas de una mercancia con el mismo nombre
+-Las cantidades deben ser con numeros entero.
+-La fecha de ingreso debe ser igual o menor a la fecha actual. 
+
+-PARA LA EDICION: 
+- Se deben tener las mismas condiciones que se tienen para el registro,
+adicional se debe registrar el usuario y la fecha de modificación. 
+
+-PARA ELIMINAR:
+Solo se permite eliminar al mismo usuario que creó el articulo. 
+/////////////////////////////////////////////////////////
+
+USABILIDAD. 
+
+Se debe permitir mostrar por pantalla la mercancia registrada, los 
+filtros de busqueda, como fecha, usuario y/o nombre. Debe contener 
+minimo un filtro. 
+
+
+
+ 
