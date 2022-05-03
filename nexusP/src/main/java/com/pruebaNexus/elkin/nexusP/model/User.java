@@ -23,7 +23,7 @@ import java.time.LocalDate;
 @SQLDelete(sql = "UPDATE user SET deleted = true WHERE id = ?")
 @Where(clause = "deleted = false")
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "user")
+@Table(name = "person")
 public class User extends BaseEntity {
 
     @NotBlank
@@ -32,7 +32,7 @@ public class User extends BaseEntity {
     private String name;
 
     @NotNull
-    @Min(1) @Max(999)
+    //@Min(1) @Max(999)
     @Column(name ="age", nullable = false)
     private Integer age;
 

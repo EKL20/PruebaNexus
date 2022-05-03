@@ -1,6 +1,5 @@
 package com.pruebaNexus.elkin.nexusP.mapper;
 
-
 import com.pruebaNexus.elkin.nexusP.commons.model.EntityMapper;
 import com.pruebaNexus.elkin.nexusP.dto.PositionCreateDTO;
 import com.pruebaNexus.elkin.nexusP.dto.PositionDTO;

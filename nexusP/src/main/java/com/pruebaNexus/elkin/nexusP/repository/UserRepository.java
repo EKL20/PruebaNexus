@@ -11,12 +11,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
 
-    @Query("SELECT u FROM User u WHERE LOWER(p.name) LIKE LOWER(concat('%', :query, '%'))")
+    @Query("SELECT u FROM User u WHERE LOWER(u.name) LIKE LOWER(concat('%', :query, '%'))")
     Page<User> search(@Param("query") String query, Pageable pageable);
 
     @Query("SELECT COUNT(u) FROM User u WHERE LOWER(u.name) = LOWER(:name)")
     String FindtByName(String code);
 
     @Query("SELECT COUNT(u) FROM User u WHERE LOWER(u.name) = LOWER(:name)")
-    Long CounttByName(String code);
+    Long CountByName(String code);
 }

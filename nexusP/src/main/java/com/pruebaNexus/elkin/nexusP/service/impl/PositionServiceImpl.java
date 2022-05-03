@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,18 +23,18 @@ import static com.pruebaNexus.elkin.nexusP.exceptions.PositionError.ELEMENT_NOT_
 @Service
 @RequiredArgsConstructor
 public class PositionServiceImpl implements PositionService {
-
     private final PositionRepository positionRepository;
     private final PositionMapper mapper;
 
-
     @Override
+    @Transactional
     public void save(PositionCreateDTO PositionDTO) {
         log.debug("Request to save Position : {}", PositionDTO);
         positionRepository.save(mapper.toEntity(PositionDTO));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<PositionDTO> SearchPosition(String query, Pageable pageable) {
         log.debug("Request to search Position");
         return positionRepository.search(query, pageable).map(mapper::toDto);
@@ -48,6 +49,7 @@ public class PositionServiceImpl implements PositionService {
     }
 
     @Override
+    @Transactional
     public PositionDTO update(PositionCreateDTO positionDTO, Long id) {
         if(!positionRepository.findById(id).isPresent()){
             throw new GenericConflictException(ELEMENT_NOT_FOUND);
