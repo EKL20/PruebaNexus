@@ -18,5 +18,5 @@ public interface UserRepository extends JpaRepository<User, Long>{
     String FindtByName(String code);
 
     @Query("SELECT COUNT(u) FROM User u WHERE LOWER(u.name) = LOWER(:name)")
-    String CounttByName(String code);
+    Long CounttByName(String code);
 }

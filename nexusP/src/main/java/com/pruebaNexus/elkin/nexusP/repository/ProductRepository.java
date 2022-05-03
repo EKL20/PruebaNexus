@@ -24,5 +24,5 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
     List<Product> findProductByUser(@Param("userId") Long idUser);
 
     @Query("SELECT COUNT(pr) FROM Product pr WHERE LOWER(pr.name) = LOWER(:name)")
-    String CountByName(String name);
+    Long CountByName(String name);
 }
