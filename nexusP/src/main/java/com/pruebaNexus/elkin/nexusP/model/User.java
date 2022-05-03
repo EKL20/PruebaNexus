@@ -32,7 +32,7 @@ public class User extends BaseEntity {
     private String name;
 
     @NotNull
-    //@Min(1) @Max(999)
+    @Min(1) @Max(999)
     @Column(name ="age", nullable = false)
     private Integer age;
 

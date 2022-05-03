@@ -42,6 +42,6 @@ public class Product extends BaseEntity {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "person_id", nullable = false)
     private User user;
 }

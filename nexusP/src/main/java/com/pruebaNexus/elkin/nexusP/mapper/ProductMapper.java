@@ -10,9 +10,9 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring", uses ={UserMapper.class})
 public interface ProductMapper extends EntityMapper<ProductDTO, Product> {
 
-    @Mapping(source = "userId", target = "user.id")
+    @Mapping(source = "personId", target = "person.id")
     Product toEntity(ProductCreateDTO request);
 
-    @Mapping(source = "user", target = "user")
+    @Mapping(source = "person", target = "person")
     ProductDTO toDto(Product product);
 }
