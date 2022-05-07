@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URISyntaxException;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -20,10 +21,11 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<Void> createUser(@Valid @RequestBody UserCreateDTO request) throws URISyntaxException {
+    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserCreateDTO request) throws URISyntaxException {
         log.info("REST request to save Position : {}", request);
         userService.save(request);
         return ResponseEntity.noContent().build();

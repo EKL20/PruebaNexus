@@ -15,8 +15,5 @@ public interface PositionRepository extends JpaRepository<Position, Long>{
     Page<Position> search(@Param("query") String query, Pageable pageable);
 
     @Query("SELECT COUNT(p) FROM Position p WHERE LOWER(p.name) = LOWER(:name)")
-    String FindtByName(String name);
-
-    @Query("SELECT COUNT(p) FROM Position p WHERE LOWER(p.name) = LOWER(:name)")
     Long counttByName(String name);
 }

@@ -6,8 +6,10 @@ import com.pruebaNexus.elkin.nexusP.dto.PositionDTO;
 import com.pruebaNexus.elkin.nexusP.model.Position;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring")
 public interface PositionMapper extends EntityMapper<PositionDTO, Position> {
-
-    Position toEntity(PositionCreateDTO position);
+    
+    Position toEntity(PositionCreateDTO position); //toDTO
+    
+    PositionCreateDTO toDTO(Position position);
 }

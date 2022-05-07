@@ -20,11 +20,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/product")
 public class ProductController {
-
+    
+    @org.springframework.beans.factory.annotation.Autowired
     private final ProductService productService;
 
     @PostMapping
-    public ResponseEntity<Void> createProduct(@Valid @RequestBody ProductCreateDTO request) throws URISyntaxException {
+    public ResponseEntity<ProductDTO> createProduct(@Valid @RequestBody ProductCreateDTO request) throws URISyntaxException {
         log.info("REST request to save Product : {}", request);
         productService.save(request);
         return ResponseEntity.noContent().build();

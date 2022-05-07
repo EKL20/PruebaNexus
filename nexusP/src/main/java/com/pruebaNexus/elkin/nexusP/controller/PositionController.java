@@ -19,11 +19,11 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/position")
 public class PositionController {
-
+    
     private final PositionService positionService;
 
     @PostMapping
-    public ResponseEntity<Void> createPosition(@Valid @RequestBody PositionCreateDTO request) throws URISyntaxException {
+    public ResponseEntity<PositionDTO> createPosition(@Valid @RequestBody PositionCreateDTO request) throws URISyntaxException {
         log.info("REST request to save Position : {}", request);
         positionService.save(request);
         return ResponseEntity.noContent().build();

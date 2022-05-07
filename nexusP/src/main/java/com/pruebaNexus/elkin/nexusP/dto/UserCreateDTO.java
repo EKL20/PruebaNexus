@@ -24,7 +24,7 @@ public class UserCreateDTO implements Serializable {
     private String name;
 
     @NotNull
-    //@Min(1) @Max(999)
+    //@Min(1) @Max(200)
     private Integer age;
 
     @NotNull
@@ -32,6 +32,6 @@ public class UserCreateDTO implements Serializable {
 
     @NotNull
     //@PastOrPresent
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDate dateAdmission;
 }

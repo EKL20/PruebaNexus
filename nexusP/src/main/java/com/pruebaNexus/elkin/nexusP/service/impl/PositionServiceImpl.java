@@ -22,6 +22,7 @@ import static com.pruebaNexus.elkin.nexusP.exceptions.PositionError.ELEMENT_NOT_
 @Service
 @RequiredArgsConstructor
 public class PositionServiceImpl implements PositionService {
+    
     private final PositionRepository positionRepository;
     private final PositionMapper mapper;
 

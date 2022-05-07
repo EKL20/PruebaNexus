@@ -14,14 +14,11 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>{
 
-    @Query("SELECT pr FROM User pr WHERE LOWER(p.name) LIKE LOWER(concat('%', :query, '%'))")
+    @Query("SELECT pr FROM User pr WHERE LOWER(pr.name) LIKE LOWER(concat('%', :query, '%'))")
     Page<Product> search(@Param("query") String query, Pageable pageable);
 
-    @Query("SELECT COUNT(pr) FROM Product pr WHERE LOWER(pr.name) = LOWER(:name)")
-    String FindtByName(String name);
-
-    @Query("SELECT pr FROM Product pr WHERE pr.user.id =:userId ORDER BY pr.id")
-    List<Product> findProductByUser(@Param("userId") Long idUser);
+    //@Query("SELECT pr FROM Product pr WHERE pr.user.id =:userId ORDER BY pr.id")
+    //List<User> findProductByUser(@Param("userId") Long idUser);
 
     @Query("SELECT COUNT(pr) FROM Product pr WHERE LOWER(pr.name) = LOWER(:name)")
     Long CountByName(String name);

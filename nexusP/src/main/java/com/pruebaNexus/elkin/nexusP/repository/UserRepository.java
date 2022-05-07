@@ -15,8 +15,5 @@ public interface UserRepository extends JpaRepository<User, Long>{
     Page<User> search(@Param("query") String query, Pageable pageable);
 
     @Query("SELECT COUNT(u) FROM User u WHERE LOWER(u.name) = LOWER(:name)")
-    String FindtByName(String code);
-
-    @Query("SELECT COUNT(u) FROM User u WHERE LOWER(u.name) = LOWER(:name)")
-    Long CountByName(String code);
+    Long CountByName(String name);
 }
